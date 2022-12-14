@@ -1,0 +1,70 @@
+openapi: 3.0.0
+x-stoplight:
+  id: 62mgbclbf0v2y
+info:
+  title: go-minting-api
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /nfts:
+    post:
+      summary: ''
+      operationId: create-nft
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tokenId:
+                    type: number
+                    minimum: 1
+              examples:
+                Example 1:
+                  value:
+                    tokenId: 1
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                Example 1:
+                  value:
+                    message: Bad Request
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                Example 1:
+                  value:
+                    message: internal server error
+      description: Create New NFT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userSig:
+                  type: string
+                  description: user signature for blockchain
+              required:
+                - userSig
+            examples:
+              Example 1:
+                value:
+                  userSig: '0x21fbf0696d5e0aa2ef41a2b4ffb623bcaf070461d61cf7251c74161f82fec3a4370854bc0a34b3ab487c1bc021cd318c734c51ae29374f2beb0e6f2dd49b4bf41c'
