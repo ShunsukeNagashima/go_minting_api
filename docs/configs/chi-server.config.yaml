@@ -1,7 +1,7 @@
-package: petshop
+package: api
 generate:
   chi-server: true
   embedded-spec: true
-output: src/gen/openapi/server.gen.go
+output: src/gen/api/server.gen.go
 output-options:
   skip-prune: true
