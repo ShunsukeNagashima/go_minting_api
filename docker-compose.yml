@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  app:
+    image: go_minting
+    build:
+      args:
+        - target=dev
+    volumes:
+      - .:/app
+    ports:
+      - "18000:8080"

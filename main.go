@@ -12,15 +12,15 @@ import (
 
 	middleware "github.com/deepmap/oapi-codegen/pkg/chi-middleware"
 	"github.com/go-chi/chi/v5"
-	"github.com/shunsukenagashima/go_minting_api/src/gen/api"
-	"github.com/shunsukenagashima/go_minting_api/src/handler"
+	"github.com/shunsukenagashima/go_minting_api/gen/api"
+	"github.com/shunsukenagashima/go_minting_api/handler"
 	"golang.org/x/sync/errgroup"
 )
 
 func main() {
-	l, err := net.Listen("tcp", fmt.Sprintf(":%d", 8888))
+	l, err := net.Listen("tcp", fmt.Sprintf(":%d", 8080))
 	if err != nil {
-		log.Fatalf("failed to listen port %d: %v", 8888, err)
+		log.Fatalf("failed to listen port %d: %v", 8080, err)
 	}
 	swagger, err := api.GetSwagger()
 	if err != nil {
@@ -42,7 +42,7 @@ func main() {
 
 	s := &http.Server{
 		Handler: r,
-		Addr: 	 fmt.Sprintf("0.0.0.0:%d", 8888),
+		Addr: 	 fmt.Sprintf("0.0.0.0:%d", 8080),
 	}
 
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
