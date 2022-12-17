@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/shunsukenagashima/go_minting_api/src/gen/api"
+	"github.com/shunsukenagashima/go_minting_api/gen/api"
 )
 
 type CreateNft struct {
