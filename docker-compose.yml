@@ -3,9 +3,10 @@ services:
   app:
     image: go_minting
     build:
+      dockerfile: docker/go_minting/Dockerfile
       args:
         - target=dev
     volumes:
       - .:/app
     ports:
-      - "18000:8080"
+      - "18080:8080"
